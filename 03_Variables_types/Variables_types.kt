@@ -2,7 +2,7 @@ fun main(){
     val firstName: String = "Aleksandr"
     val lastName: String = "Aleynikov"
     var height: Double = 1.70
-    var weight: Float = 92.3f
+    val weight: Float = 92.3f
     var isChild = height < 1.5 || weight < 40f
     var info = "My name is $firstName and my surname $lastName. " +
             "My height is $height and weight is $weight. I'm a child is $isChild. "
