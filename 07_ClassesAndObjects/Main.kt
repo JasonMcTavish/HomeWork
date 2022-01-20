@@ -29,25 +29,4 @@ val lg = Tv("Lg","65UP75",65)
     for (it in 0..11)
     {lg.volumeDown()}
 
-//    samsung.turnOnChannel()
-//    println()
-//    samsung.turnOffTv()
-//    Thread.sleep(1000)
-//
-//    for (it in 0..21)
-//    {samsung.channelUp()}
-//    println()
-//    samsung.turnOffTv()
-//    Thread.sleep(1000)
-//
-//    for (it in 0..21)
-//    {samsung.channelDown()}
-//    Thread.sleep(1000)
-//
-//    for (it in 0..11)
-//    {samsung.volumeUp()}
-//    Thread.sleep(1000)
-//
-//    for (it in 0..11)
-//    {samsung.volumeDown()}
 }
