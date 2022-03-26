@@ -1,5 +1,6 @@
+package `06_Collections`
 fun main() {
-    var n: Int = 0
+    var n: Int
     val numbersPlusSeven = mutableListOf<String>()
     var numbersSet = setOf<String>()
     do {

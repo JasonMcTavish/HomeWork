@@ -1,3 +1,4 @@
+package `07_ClassesAndObjects`
 import kotlin.random.Random
 
 class Tv(val brand: String, val model: String, val diagonal: Int) {

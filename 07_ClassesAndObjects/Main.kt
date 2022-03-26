@@ -1,3 +1,4 @@
+package `07_ClassesAndObjects`
 fun main(){
 val lg = Tv("Lg","65UP75",65)
     lg.printInfo()

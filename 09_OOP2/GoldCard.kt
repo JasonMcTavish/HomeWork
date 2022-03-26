@@ -1,3 +1,4 @@
+package `09_OOP2`
 class GoldCard(
     numberOfCardArg: String,
     balanceArg: Int,

@@ -1,3 +1,4 @@
+package `08_OOP1`
 import kotlin.random.Random
 import kotlin.random.nextInt
 

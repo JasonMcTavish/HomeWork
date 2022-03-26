@@ -1,3 +1,4 @@
+package `09_OOP2`
 abstract class DebitCard(numberOfCardArg: String, balanceArg: Int) : BankCard(numberOfCardArg, balanceArg) {
 
     override fun addCash(sumOfCash: Int) {

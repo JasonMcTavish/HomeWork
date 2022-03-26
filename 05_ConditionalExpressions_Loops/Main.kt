@@ -1,3 +1,4 @@
+package `05_ConditionalExpressions_Loops`
 fun main() {
     print("Choose method of the cycle.\n " +
             "Enter 1 - do with for \n " +

@@ -1,3 +1,4 @@
+package `09_OOP2`
 fun main() {
     val goldCard = GoldCard("554658565", 10000, 10000)
     goldCard.getAvailableCash()

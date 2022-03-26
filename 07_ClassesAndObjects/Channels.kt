@@ -1,3 +1,4 @@
+package `07_ClassesAndObjects`
 object Channels {
     private val channelList = mutableListOf<String>(
         "Первый",

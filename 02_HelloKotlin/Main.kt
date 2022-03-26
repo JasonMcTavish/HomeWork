@@ -1,3 +1,4 @@
+package `02_HelloKotlin`
 fun main() {
     print("Попытка создания проекта для")
     println(" сдачи домашнего задания.")
