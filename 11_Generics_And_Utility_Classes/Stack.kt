@@ -6,11 +6,11 @@ class Stack<T> {
     private var collection: Stack<T>? = null
 
     fun push(item: T) {
-        collection?.add(item)
+        collection?.push(item)
     }
 
     fun pop(): T? {
-        return collection?.first()
+        return collection?.pop()
     }
 
     fun isEmpty(): Boolean {
