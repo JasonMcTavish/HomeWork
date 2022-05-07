@@ -23,7 +23,7 @@ class AbstractWeapon(val maxAmmo: Int) {
 
     fun getAmmo() {
         var i = 0
-        if (ammoMagazine.isEmpty()) recharge()
+        if (ammoMagazine.isEmpty())
         else {
             if (fireType == FireType.SingleShot) ammoMagazine.pop()
             else while (i != 4) {
