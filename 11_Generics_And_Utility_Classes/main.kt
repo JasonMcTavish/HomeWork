@@ -9,10 +9,10 @@ fun main() {
         numberOfWarrior = readLine()?.toIntOrNull() ?: return
         if (numberOfWarrior <= 0) println("Попробуйте ввести снова")
     } while (numberOfWarrior <= 0)
-    Battle().team1 = Team().addWarrior(numberOfWarrior)
-    Battle().team2 = Team().addWarrior(numberOfWarrior)
 
-        Battle().iterationOfBattle()
+println()
+    Battle().iterationOfBattle(numberOfWarrior)
+
 
 }
 

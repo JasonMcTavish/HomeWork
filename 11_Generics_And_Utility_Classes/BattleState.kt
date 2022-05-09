@@ -2,8 +2,7 @@ package `11_Generics_And_Utility_Classes`
 
 sealed class BattleState {
     object Progress : BattleState() {
-        var remainingWarrior = "Осталось воинов в команде 1: ${Battle().team1.size}" + "\n" +
-                "Осталось воинов в команде 2: ${Battle().team2.size}"
+        var remainingWarrior = ""
     }
 
     object WinOfFirstTeam : BattleState() {
