@@ -14,11 +14,10 @@ class AbstractWeapon(val maxAmmo: Int) {
         }
 
     fun recharge() {
-        var numberOfAmmo: Int = 0
-        do {
+        for (i in 0 until maxAmmo) {
             ammoMagazine.push(createAmmo())
-            numberOfAmmo++
-        } while (numberOfAmmo == maxAmmo)
+        }
+
     }
 
     fun getAmmo() {

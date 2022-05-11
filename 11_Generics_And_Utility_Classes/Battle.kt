@@ -1,6 +1,6 @@
 package `11_Generics_And_Utility_Classes`
 
-open class Battle {
+open class Battle(var numberOfWarrior: Int) {
     private val team1 = mutableListOf<AbstractWarrior>()
     private val team2 = mutableListOf<AbstractWarrior>()
 
@@ -9,12 +9,6 @@ open class Battle {
 
 
     fun iterationOfBattle() {
-        var numberOfWarrior: Int = 1
-        println("Введите количество воинов")
-        do {
-            numberOfWarrior = readLine()?.toIntOrNull() ?: return
-            if (numberOfWarrior <= 0) println("Неверное значение")
-        } while (numberOfWarrior<=0)
         for (l in 0 until numberOfWarrior) {
             team1.add(Team().addWarrior())
             team2.add(Team().addWarrior())
