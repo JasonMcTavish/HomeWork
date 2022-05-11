@@ -4,10 +4,10 @@ class Team {
     private var chanceToGeneral = 10
     private var chanceToCaptain = 30
     private var chanceToGrenadier = 60
-    private val general = General()
-    private val captain = Captain()
-    private val grenadier = Grenadier()
-    private val soldier = Soldier()
+    private var general = General()
+    private var captain = Captain()
+    private var grenadier = Grenadier()
+    private var soldier = Soldier()
 
     fun addWarrior(): AbstractWarrior {
         return if (chanceToGeneral.chance()) {

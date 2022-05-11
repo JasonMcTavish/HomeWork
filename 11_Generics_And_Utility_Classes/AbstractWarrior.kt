@@ -1,7 +1,7 @@
 package `11_Generics_And_Utility_Classes`
 
 open class AbstractWarrior : Warrior {
-    override var isKilled: Boolean = false
+    override var isKilled : Boolean = false
     override var chanceToEvade: Int = 15
     open val maxHealth: Int = 100
     open val accuracy: Int = 15

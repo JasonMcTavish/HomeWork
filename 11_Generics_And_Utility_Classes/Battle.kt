@@ -1,12 +1,21 @@
 package `11_Generics_And_Utility_Classes`
 
-class Battle {
-  private  val team1 = mutableListOf<AbstractWarrior>()
-  private  val team2 = mutableListOf<AbstractWarrior>()
+open class Battle {
+    private val team1 = mutableListOf<AbstractWarrior>()
+    private val team2 = mutableListOf<AbstractWarrior>()
 
 
-    fun iterationOfBattle(n:Int) {
-        for (i in 0 until n) {
+
+
+
+    fun iterationOfBattle() {
+        var numberOfWarrior: Int = 1
+        println("Введите количество воинов")
+        do {
+            numberOfWarrior = readLine()?.toIntOrNull() ?: return
+            if (numberOfWarrior <= 0) println("Неверное значение")
+        } while (numberOfWarrior<=0)
+        for (l in 0 until numberOfWarrior) {
             team1.add(Team().addWarrior())
             team2.add(Team().addWarrior())
         }
@@ -16,7 +25,7 @@ class Battle {
                 team1.shuffle()
                 team2.shuffle()
                 team1[i].attack(team2[i])
-                if (team2[i].isKilled) team2.remove(team1[i])
+                if (team2[i].isKilled) team2.remove(team2[i])
                 team2[i].attack(team1[i])
                 if (team1[i].isKilled) team1.remove(team1[i])
                 if (team1.size == 0 && team2.size == 0) {
