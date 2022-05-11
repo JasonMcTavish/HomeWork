@@ -1,4 +1,4 @@
-package `11_Generics_And_Utility_Classes`
+package Generics_And_Utility_Classes
 
 enum class Ammo(private val damage: Int, private val chanceToCritical: Int, private val criticalDamage: Int) {
     PistolAmmo(10, 10, 2),

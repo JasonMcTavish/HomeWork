@@ -1,4 +1,4 @@
-package `11_Generics_And_Utility_Classes`
+package Generics_And_Utility_Classes
 
 open class Battle(var numberOfWarrior: Int) {
     private val team1 = mutableListOf<AbstractWarrior>()

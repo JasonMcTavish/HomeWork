@@ -1,4 +1,4 @@
-package `11_Generics_And_Utility_Classes`
+package Generics_And_Utility_Classes
 
 open class AbstractWarrior(
     override var isKilled: Boolean,
@@ -12,18 +12,18 @@ open class AbstractWarrior(
 
     override fun attack(warrior: Warrior) {
         var i = 0
-        if (weapon.ammoMagazine.isEmpty()) weapon.recharge()
+        if (weapon.ammoMagazine.isEmpty()) weapon.reloading()
         else {
             if (weapon.fireType == FireType.SingleShot) {
                 weapon.getAmmo()
                 if (accuracy > warrior.chanceToEvade) warrior.takeDamage(weapon.typeOfAmmo.dealingDamage(weapon.typeOfAmmo))
             } else
-                do {
+               for (j in 0..FireType.BurstShooting(5).rateOfQueue) {
                     if (weapon.ammoMagazine.isEmpty()) break
                     weapon.getAmmo()
                     if (accuracy > warrior.chanceToEvade) warrior.takeDamage(weapon.typeOfAmmo.dealingDamage(weapon.typeOfAmmo))
                     i++
-                } while (i == 4)
+                }
 
         }
     }
