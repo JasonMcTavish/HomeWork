@@ -8,7 +8,8 @@ open class AbstractWarrior(
     open var weapon: AbstractWeapon = Weapons.createPistol()
 ) : Warrior {
     open var health: Int = maxHealth
-    open var ammoForFire: Ammo = Ammo.PistolAmmo
+    open var ammoForSingleFire = Ammo.PistolAmmo
+    open var ammoForFire = Stack<Ammo>()
 
 
     override fun attack(warrior: Warrior) {
@@ -17,14 +18,24 @@ open class AbstractWarrior(
             weapon.reloading()
         } else {
             if (weapon.fireType == FireType.SingleShot) {
-                ammoForFire = weapon.getAmmo().pop()
-                if (accuracy >= warrior.chanceToEvade) warrior.takeDamage(ammoForFire.dealingDamage(ammoForFire))
-            } else
-                for (j in 0 until FireType.BurstShooting(5).rateOfQueue) {
-                    if (weapon.ammoMagazine.isEmpty()) break
-                    ammoForFire = weapon.getAmmo().pop()
-                    if (accuracy >= warrior.chanceToEvade) warrior.takeDamage(ammoForFire.dealingDamage(ammoForFire))
+                ammoForSingleFire = weapon.getAmmo().pop()
+                if (accuracy >= warrior.chanceToEvade) {
+                    warrior.takeDamage(
+                        ammoForSingleFire.dealingDamage(
+                            ammoForSingleFire
+                        )
+                    )
                 }
+            } else ammoForFire = weapon.getAmmo()
+            for (j in 0 until FireType.BurstShooting().rateOfQueue) {
+                if (ammoForFire.isEmpty()) break
+                ammoForSingleFire = ammoForFire.pop()
+                if (accuracy >= warrior.chanceToEvade) warrior.takeDamage(
+                    ammoForSingleFire.dealingDamage(
+                        ammoForSingleFire
+                    )
+                )
+            }
 
         }
     }

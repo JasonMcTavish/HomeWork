@@ -28,7 +28,8 @@ class AbstractWeapon(val maxAmmo: Int, var fireType: FireType, var typeOfAmmo: A
                 stackForFire.push(ammoMagazine.pop())
                 return stackForFire
             } else {
-                for (i in 0 until FireType.BurstShooting(5).rateOfQueue )
+                for (i in 0 until FireType.BurstShooting().rateOfQueue )
+                    if (ammoMagazine.isEmpty()) break
                     stackForFire.push(ammoMagazine.pop())
         }
         return stackForFire

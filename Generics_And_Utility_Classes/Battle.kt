@@ -1,45 +1,43 @@
 package Generics_And_Utility_Classes
 
 open class Battle(var numberOfWarrior: Int) {
-    private val team1 = mutableListOf<AbstractWarrior>()
-    private val team2 = mutableListOf<AbstractWarrior>()
-    var numberOfAliveWarrior :Int = 0
+    val team1 = Team("Alpha", numberOfWarrior)
+    val team2 = Team("Beta", numberOfWarrior)
+    private var battleIsOver: Boolean = false
 
-
-
-
+    private fun getProgress(i:Int) {
+        if (team1.team.size == 0) {
+            battleIsOver = true
+            println(BattleState.Team2Win(team1, team2).stateMsg)
+        }
+        if (team2.team.size == 0) {
+            battleIsOver = true
+            println(BattleState.Team1Win(team1, team2).stateMsg)
+        }
+        if(!battleIsOver) println(BattleState.Progress(team1, team2).stateMsg)
+    }
 
     fun iterationOfBattle() {
-        for (l in 0 until numberOfWarrior) {
-            team1.add(Team().addWarrior())
-            team2.add(Team().addWarrior())
-        }
         var i = 0
         do {
             do {
-                team1.shuffle()
-                team2.shuffle()
-                team1[i].attack(team2[i])
-                if (team2[i].isKilled) team2.remove(team2[i])
-                team2[i].attack(team1[i])
-                if (team1[i].isKilled) team1.remove(team1[i])
-                if (team1.size == 0 && team2.size == 0) {
-                    println(BattleState.Draw.endOfBattle)
+                team1.team[(0 until team1.team.size).random()].attack(team2.team[(0 until team2.team.size).random()])
+                team2.team.removeAll { it.isKilled }
+                getProgress(i)
+                if (battleIsOver) {
                     break
                 }
-                if (team1.size == 0) {
-                    println(BattleState.WinOfSecondTeam.endOfBattle)
-                    break
-                }
-                if (team2.size == 0) {
-                    println(BattleState.WinOfFirstTeam.endOfBattle)
+                team2.team[(0 until team2.team.size).random()].attack(team1.team[(0 until team1.team.size).random()])
+                team1.team.removeAll { it.isKilled }
+                getProgress(i)
+                if (battleIsOver) {
                     break
                 }
                 i++
-                numberOfAliveWarrior = team1.size + team2.size
-                print(numberOfAliveWarrior)
-            } while (i != team1.size || i != team2.size)
+            } while (i < team1.team.size || i < team2.team.size)
             i = 0
-        } while (team1.size != 0 || team2.size != 0)
+            if(!battleIsOver){
+            println(BattleState.Progress(team1, team2).progressInfo)}
+        } while (!battleIsOver)
     }
 }

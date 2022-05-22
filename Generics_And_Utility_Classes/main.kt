@@ -8,10 +8,6 @@ println("Введите количество воинов")
        numberOfWarrior= readLine()?.toIntOrNull() ?: 2
     var battle : Battle = Battle(numberOfWarrior)
 
-
-
-
-println()
     battle.iterationOfBattle()
 
 
