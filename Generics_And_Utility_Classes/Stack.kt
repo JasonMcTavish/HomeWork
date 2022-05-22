@@ -7,9 +7,7 @@ class Stack<T>(){
         collection.add(0,item)
     }
     fun pop():T{
-        val item = collection[0]
-        collection.removeAt(0)
-        return item
+        return collection.removeAt(0)
     }
     fun isEmpty():Boolean{
         return collection.indices == 0 downTo -1
