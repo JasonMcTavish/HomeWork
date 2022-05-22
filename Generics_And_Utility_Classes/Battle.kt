@@ -3,6 +3,7 @@ package Generics_And_Utility_Classes
 open class Battle(var numberOfWarrior: Int) {
     private val team1 = mutableListOf<AbstractWarrior>()
     private val team2 = mutableListOf<AbstractWarrior>()
+    var numberOfAliveWarrior :Int = 0
 
 
 
@@ -35,6 +36,8 @@ open class Battle(var numberOfWarrior: Int) {
                     break
                 }
                 i++
+                numberOfAliveWarrior = team1.size + team2.size
+                print(numberOfAliveWarrior)
             } while (i != team1.size || i != team2.size)
             i = 0
         } while (team1.size != 0 || team2.size != 0)

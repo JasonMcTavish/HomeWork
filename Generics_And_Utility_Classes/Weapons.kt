@@ -4,15 +4,15 @@ import kotlin.random.Random
 
 object Weapons {
     fun createPistol(): AbstractWeapon {
-        return AbstractWeapon(Random.nextInt(0, 15), FireType.SingleShot, Ammo.PistolAmmo)
+        return AbstractWeapon(Random.nextInt(5, 15), FireType.SingleShot, Ammo.PistolAmmo)
     }
 
     fun createRifle(): AbstractWeapon {
-        return AbstractWeapon(Random.nextInt(0, 5), FireType.SingleShot, Ammo.RifleAmmo)
+        return AbstractWeapon(Random.nextInt(3, 8), FireType.SingleShot, Ammo.RifleAmmo)
     }
 
     fun createMachineGun(): AbstractWeapon {
-        return AbstractWeapon(Random.nextInt(0, 15), FireType.BurstShooting(5), Ammo.MachineGunAmmo)
+        return AbstractWeapon(Random.nextInt(5, 20), FireType.BurstShooting(5), Ammo.MachineGunAmmo)
     }
 
     fun createGrenade(): AbstractWeapon {

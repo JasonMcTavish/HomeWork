@@ -2,7 +2,7 @@ package Generics_And_Utility_Classes
 
 sealed class BattleState {
     object Progress : BattleState() {
-        var remainingWarrior = ""
+        var remainingWarrior = "Осталось воинов первой команды: "
     }
 
     object WinOfFirstTeam : BattleState() {

@@ -1,9 +1,10 @@
 package Generics_And_Utility_Classes
 
 import java.util.Stack
+import java.util.ArrayDeque
 
 class Stack<T> {
-     var collection= Stack<T>()
+     private var collection= ArrayDeque<T>()
 
     fun push(item: T) {
         collection.push(item)
@@ -14,6 +15,6 @@ class Stack<T> {
     }
 
     fun isEmpty(): Boolean {
-        return collection == null
+        return collection.isEmpty()
     }
 }

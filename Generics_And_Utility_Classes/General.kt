@@ -1,5 +1,5 @@
 package Generics_And_Utility_Classes
 
-class General : AbstractWarrior(false,30,150,15) {
-    override var weapon: AbstractWeapon = Weapons.createRifle()
+class General : AbstractWarrior(false,30,150,30,Weapons.createRifle()){
+    override var ammoForFire: Ammo = Ammo.RifleAmmo
 }
