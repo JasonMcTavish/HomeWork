@@ -27,7 +27,7 @@ object Fibonacci {
                     }
                 } catch (e: TimeoutCancellationException) {
                     println("\nTime out")
-                    return (0).toBigInteger()
+                    return (4).toBigInteger()
                 }
                 return value
             }

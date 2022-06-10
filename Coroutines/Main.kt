@@ -30,7 +30,7 @@ fun main(): Unit = runBlocking {
         val c = async { fibo1.take(n3) }
        awaitAll(a,b,c).forEach{it ->
            run {
-               if (it != (0).toBigInteger()) println(it)
+               if (it != (4).toBigInteger()) println(it)
                else print("")
            }
        }
