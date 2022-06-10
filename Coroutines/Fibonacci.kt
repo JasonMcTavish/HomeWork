@@ -4,9 +4,7 @@ import kotlinx.coroutines.*
 import java.math.BigInteger
 
 object Fibonacci {
-
-    suspend fun take(n: Int): BigInteger  {
-
+    suspend fun take(n: Int): BigInteger {
         var valueNMinusTwo: BigInteger = (0).toBigInteger()
         var valueNMinusOne: BigInteger = (1).toBigInteger()
         var value: BigInteger = (1).toBigInteger()
@@ -22,12 +20,11 @@ object Fibonacci {
                     j++
                     yield()
                     delay(10)
-
                 }
                 return value
             }
         }
-
     }
+
 }
 
