@@ -19,8 +19,9 @@ object Fibonacci {
                     value = valueNMinusTwo + valueNMinusOne
                     valueNMinusTwo = valueNMinusOne
                     valueNMinusOne = value
-                    delay(100)
                     j++
+                    yield()
+                    delay(10)
 
                 }
                 return value

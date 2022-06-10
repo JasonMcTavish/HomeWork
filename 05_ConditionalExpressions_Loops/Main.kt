@@ -50,7 +50,6 @@ fun calculateFibWhile(n: Int): Long {
     }
     return value
 }
-
 fun calculateFibFor(n: Int): Long {
     var valueNMinusTwo: Long = 0
     var valueNMinusOne: Long = 1
