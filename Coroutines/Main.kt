@@ -1,9 +1,8 @@
 package Coroutines
 
 import kotlinx.coroutines.*
-import kotlinx.coroutines.GlobalScope
 import java.math.BigInteger
-import kotlin.coroutines.CoroutineContext
+
 
 val handler = CoroutineExceptionHandler { _, exception ->
     println("Error: ${exception.message}")
@@ -16,45 +15,25 @@ fun main(): Unit = runBlocking {
     val n1 = 1000
     val n2 = 80
     val n3 = 300
-    var a: BigInteger
-    var b: BigInteger
-    var c: BigInteger
 
     val job = scope.launch {
+
         val job2 = launch {
-            for (i in 1..5000) {
+            for (i in 1..50000) {
                 delay(10)
                 if (i % 50 == 0) println(".")
                 else print(".")
             }
         }
-        try {
-            withTimeout(3000) {
-                a = fibo1.take(n1)
-                println("Fibo №$n1 is $a")
-            }
-        } catch (e: TimeoutCancellationException) {
-            println("Time out")
-        }
-
-        try {
-            withTimeout(3000) {
-                b = fibo2.take(n2)
-                println("Fibo №$n2 is $b")
-            }
-        } catch (e: TimeoutCancellationException) {
-            println("Time out")
-        }
-        try {
-            withTimeout(3000) {
-                c = fibo3.take(n3)
-                println("Fibo №$n3 is $c")
-            }
-        } catch (e: TimeoutCancellationException) {
-            println("Time out")
-        }
-
-
+        val a = async { fibo1.take(n1) }
+        val b = async { fibo1.take(n2) }
+        val c = async { fibo1.take(n3) }
+       awaitAll(a,b,c).forEach{it ->
+           run {
+               if (it != (0).toBigInteger()) println(it)
+               else print("")
+           }
+       }
         if (isActive) job2.cancelAndJoin()
 
     }
