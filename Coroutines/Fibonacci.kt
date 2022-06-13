@@ -5,7 +5,6 @@ import java.math.BigInteger
 
 object Fibonacci {
     suspend fun take(n: Int): BigInteger {
-
         yield()
         var valueNMinusTwo: BigInteger = (0).toBigInteger()
         var valueNMinusOne: BigInteger = (1).toBigInteger()
@@ -26,12 +25,11 @@ object Fibonacci {
                         }
                     }
                 } catch (e: TimeoutCancellationException) {
-                    println("\nTime out")
+                    print("\nTime out")
                     return (4).toBigInteger()
                 }
                 return value
             }
-
         }
     }
 }
