@@ -8,29 +8,25 @@ object Fibonacci {
         yield()
         var valueNMinusTwo: BigInteger = (0).toBigInteger()
         var valueNMinusOne: BigInteger = (1).toBigInteger()
-        var value: BigInteger = (1).toBigInteger()
         var j = 3
-        return when (n) {
-            1 -> (0).toBigInteger()
-            2 -> (1).toBigInteger()
-            else -> {
-                try {
-                    withTimeout(3000) {
-                        while (j <= n) {
-                            value = valueNMinusTwo + valueNMinusOne
-                            valueNMinusTwo = valueNMinusOne
-                            valueNMinusOne = value
-                            j++
-                            delay(10)
-                        }
+        return if (n in 0..1) n.toBigInteger()
+        else {
+            try {
+                withTimeout(3000) {
+                    repeat(n) {
+                        valueNMinusTwo += valueNMinusOne
+                        valueNMinusOne = valueNMinusTwo - valueNMinusOne
+
+                        delay(10)
                     }
-                } catch (e: TimeoutCancellationException) {
-                    print("\nTime out")
-                    return (4).toBigInteger()
                 }
-                return value
+            } catch (e: TimeoutCancellationException) {
+                print("\nTime out")
+                return (4).toBigInteger()
             }
+            return valueNMinusTwo
         }
+
     }
 }
 

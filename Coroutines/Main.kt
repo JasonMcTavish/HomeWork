@@ -5,8 +5,8 @@ import kotlinx.coroutines.*
 
 val scope = CoroutineScope(Dispatchers.Default)
 fun main(): Unit = runBlocking {
-    val n1 = 1000
-    val n2 = 80
+    val n1 = 100
+    val n2 = 8000
     val n3 = 300
     val job = scope.launch {
         val job2 = launch {
