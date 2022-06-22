@@ -9,13 +9,13 @@ object Host {
     private var r = 0
     val flow = flow {
         while (r != 2) {
-            yield()
-            var number = Random.nextInt(1, 90)
+            val number = Random.nextInt(1, 90)
             numberInGame.find { it == number } ?: run {
                 numberInGame.add(number)
-                emit(number)
                 println("Выпало число $number ")
-                delay(2000)
+                emit(number)
+                yield()
+                delay(200)
             }
         }
     }

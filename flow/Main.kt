@@ -8,11 +8,12 @@ fun main() {
     var gameIsOver = false
     runBlocking {
         val job = launch {
-            Host.flow.collect {
-                val status1 = play(it, player1)
-                val status2 = play(it, player2)
+            println("Начало игры")
+            Host.flow.collect {it1 ->
+                val status1 = play(it1, player1)
+                val status2 = play(it1, player2)
                 player1.hand.forEach { it.showCard() }
-                player1.hand.forEach { it.showCard() }
+                player2.hand.forEach { it.showCard() }
                 if (status1 || status2) gameIsOver = true
                 Host.stopGame(gameIsOver)
                 if (gameIsOver) {
@@ -21,10 +22,6 @@ fun main() {
             }
         }
         job.join()
-        launch {
-            player1.hand.forEach { it.showCard() }
-            player2.hand.forEach { it.showCard() }
-        }
     }
 }
 
