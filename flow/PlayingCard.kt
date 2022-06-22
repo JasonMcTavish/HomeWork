@@ -3,30 +3,23 @@ package flow
 import kotlin.random.Random
 
 class PlayingCard {
-    val card = createCard()
-    private fun createCard(): MutableList<MutableList<Int>> {
-        var list = mutableListOf<Int>()
-        for (i in 0 until 15) {
-            var number = Random.nextInt(1, 90)
-            list.find { it == number } ?: run {
-                list.add(number)
+    val card = mutableListOf<Int>()
+    init {
+        do {
+            val number = Random.nextInt(1, 90)
+            card.find { it == number } ?: run {
+                card.add(number)
             }
-        }
-        val zeroList = List(4) { 0 }
-        val list2 = list.chunked(5).toMutableList()
-        val firstLine = list2[0].toMutableList().plus(zeroList).toMutableList()
-        firstLine.shuffle()
-        val secondLine = list2[1].toMutableList().plus(zeroList).toMutableList()
-        secondLine.shuffle()
-        val thirdLine = list2[2].toMutableList().plus(zeroList).toMutableList()
-        thirdLine.shuffle()
-        return mutableListOf(firstLine, secondLine, thirdLine)
+        }while(card.size<15)
     }
 
     fun showCard() {
-        println("--------------------------------------------")
-        println(card.joinToString("\n"))
-        println()
+        val field = """
+            |${card[0]}|0|0|${card[1]}|${card[2]}|0|${card[3]}|0|${card[4]}|
+            |0|${card[5]}|0|${card[6]}|${card[7]}|0|${card[8]}|${card[9]}|0|
+            |0|0|${card[10]}|${card[11]}|0|${card[12]}|${card[13]}|0|${card[14]}|
+        """.trimIndent()
+        println(field)
     }
 }
 

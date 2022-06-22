@@ -29,9 +29,9 @@ fun main() {
 }
 
 
-suspend fun play(drawnNumber: Int, player: Player): Boolean {
+ fun play(drawnNumber: Int, player: Player): Boolean {
     player.hand.forEach {
-        it.card.forEach { player.closeNumber(it, drawnNumber) }
+        player.closeNumber(it, drawnNumber)
         if (player.checkForWin(it)) return true
     }
     return false
